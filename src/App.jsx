@@ -5,6 +5,7 @@ import Gallery from './components/Gallery/Gallery';
 import Timeline from './components/Timeline/Timeline';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import MobileMenu from './components/MobileMenu/MobileMenu';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="app">
+      <MobileMenu />
       <Hero />
       <About />
       <Members />
