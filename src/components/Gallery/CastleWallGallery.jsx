@@ -2,61 +2,66 @@ import { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import './CastleWallGallery.css';
 
+// Import gallery images
+import img1 from '../../assets/wallgallery/castle1.jpg';
+import img2 from '../../assets/wallgallery/castle2.jpg';
+import img3 from '../../assets/wallgallery/castle3.jpg';
+import img4 from '../../assets/wallgallery/castle4.jpg';
+import img5 from '../../assets/wallgallery/castle5.jpg';
+import img6 from '../../assets/wallgallery/castle6.JPG';
+import img7 from '../../assets/wallgallery/castle7.JPG';
+import img8 from '../../assets/wallgallery/castle8.JPG';
+
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1533837382332-15a3d48c4138?w=600&h=800&fit=crop',
+    src: img1,
     title: 'Castle Fortress',
     description: 'The great stronghold where legends were forged'
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=600&h=800&fit=crop',
+    src: img2,
     title: 'Battle Formation',
     description: 'Warriors standing as one against the darkness'
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1565000852-a63c066a6c7b?w=600&h=800&fit=crop',
+    src: img3,
     title: 'Ancient Hall',
     description: 'Where the council of Belmonts convened'
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1567359781514-3b964e2b04d6?w=600&h=800&fit=crop',
+    src: img4,
     title: 'War Banner',
     description: 'The sacred banner carried through ages'
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1551414743-7a5f0e9e1f3c?w=600&h=800&fit=crop',
+    src: img5,
     title: 'Great Council',
     description: 'Ancient deliberations of the Belmont lineage'
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1581456495146-65a71b2c8e52?w=600&h=800&fit=crop',
+    src: img6,
     title: 'Knight\'s Armor',
     description: 'Forged in fire, tested in battle'
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1578590715892-38e33cb1eedd?w=600&h=800&fit=crop',
-    title: 'Mountain Outpost',
-    description: 'Sentinel of the northern reaches'
+    src: img7,
+    title: 'Knight\'s Armor',
+    description: 'Forged in fire, tested in battle'
   },
   {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=600&h=800&fit=crop',
-    title: 'Victory Celebration',
-    description: 'A triumph etched in history'
+    id:8,
+    src: img8,
+    title: 'Knight\'s Armor',
+    description: 'Forged in fire, tested in battle'
   },
-  {
-    id: 9,
-    src: 'https://images.unsplash.com/photo-1604869515882-4d10fa4b0492?w=600&h=800&fit=crop',
-    title: 'Sacred Scroll',
-    description: 'Knowledge inscribed upon ancient parchment'
-  }
+  
 ];
 
 export default function CastleWallGallery() {

@@ -4,15 +4,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Gallery.css';
 
 // Import gallery images
-import groupPhoto1 from '../../assets/wallgallery/weeklybash18.jpg';
-import groupPhoto2 from '../../assets/wallgallery/weeklybash20.jpg';
-import participantsLineup from '../../assets/wallgallery/weeklybash20(1).jpg';
-import teamCollaboration from '../../assets/wallgallery/weeklybash23.jpg';
-import audienceView from '../../assets/wallgallery/weeklybash26.jpg';
-import awardCeremony from '../../assets/wallgallery/weeklybash27(2).JPG';
-import eventPresentation1 from '../../assets/wallgallery/weeklybash27(3).jpg';
-import diceGamePresentation from '../../assets/wallgallery/weeklbash27(3).jpg';
-import bingoActivity from '../../assets/wallgallery/badgeday25.jpg';
+import groupPhoto1 from '../../assets/book/weeklybash18.jpg';
+import groupPhoto2 from '../../assets/book/weeklybash20.jpg';
+import participantsLineup from '../../assets/book/weeklybash20(1).jpg';
+import teamCollaboration from '../../assets/book/weeklybash23.jpg';
+import audienceView from '../../assets/book/weeklybash26.jpg';
+import awardCeremony from '../../assets/book/weeklybash27(2).JPG';
+import eventPresentation1 from '../../assets/book/weeklybash27(3).jpg';
+import diceGamePresentation from '../../assets/book/weeklbash27(3).jpg';
+import bingoActivity from '../../assets/book/badgeday25.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 

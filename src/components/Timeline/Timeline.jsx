@@ -17,37 +17,37 @@ const checkpoints = [
   {
     id: 'north-america',
     position: { x: 18, y: 35 },
-    icon: '📍'
+    
   },
   {
     id: 'south-america',
     position: { x: 25, y: 70 },
-    icon: '📍'
+   
   },
   {
     id: 'europe',
     position: { x: 50, y: 25 },
-    icon: '📍'
+   
   },
   {
     id: 'africa',
     position: { x: 52, y: 55 },
-    icon: '📍'
+    
   },
   {
     id: 'asia',
     position: { x: 72, y: 35 },
-    icon: '📍'
+   
   },
   {
     id: 'australia',
     position: { x: 82, y: 72 },
-    icon: '📍'
+   
   },
   {
     id: 'greenland',
     position: { x: 35, y: 12 },
-    icon: '📍'
+   
   }
 ];
 
