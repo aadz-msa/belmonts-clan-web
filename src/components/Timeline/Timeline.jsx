@@ -2,6 +2,12 @@ import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import mapImage from '../../assets/map.webp';
+import ancientShield from '../../assets/icons/ancient-shield.svg';
+import ancientCompass from '../../assets/icons/ancient-compass.svg';
+import ancientScroll from '../../assets/icons/ancient-scroll.svg';
+import ancientTemple from '../../assets/icons/ancient-temple.svg';
+import ancientPyramid from '../../assets/icons/ancient-pyramid.svg';
+import ancientSeal from '../../assets/icons/ancient-seal.svg';
 import './Timeline.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,69 +51,84 @@ const checkpoints = [
   }
 ];
 
+const popupBelowCheckpoints = new Set(['north-america', 'asia', 'europe', 'greenland']);
+
 const achievements = [
   {
     id: 1,
-    year: '1147',
-    title: 'The Founding',
-    description: 'Lord Aldric united the scattered warriors under one banner, forging the Belmonts clan in the fires of brotherhood.',
-    icon: '🏰',
-    checkpoint: 'europe',
-    position: { x: 50, y: 25 }
+    year: '2024',
+    title: 'The Belmonts Created',
+    description: 'The Belmonts clan was established, uniting a group of visionaries to challenge the status quo and reshape the world.',
+    icon: ancientShield,
+    iconType: 'svg',
+    checkpoint: 'north-america',
+    position: { x: 18, y: 35 },
+    date: '11/9/2024'
   },
   {
     id: 2,
-    year: '1203',
-    title: 'Battle of Shadow\'s Peak',
-    description: 'Against impossible odds, the Belmonts held the mountain pass for seven days, earning legendary status.',
-    icon: '⚔',
-    checkpoint: 'asia',
-    position: { x: 72, y: 35 }
+    year: '2024',
+    title: 'First Weekly Bash',
+    description: 'The first gathering of the Belmonts family, conducting our inaugural weekly bash in South America.',
+    icon: ancientCompass,
+    iconType: 'svg',
+    checkpoint: 'south-america',
+    position: { x: 25, y: 70 },
+    date: '24/11/2024'
   },
   {
     id: 3,
-    year: '1289',
-    title: 'The Great Alliance',
-    description: 'Formed alliances with three neighboring kingdoms, expanding influence across the northern territories.',
-    icon: '🤝',
-    checkpoint: 'north-america',
-    position: { x: 18, y: 35 }
+    year: '2025',
+    title: 'Weekly Bash - Africa',
+    description: 'Extended our presence to the African continent, bringing the Belmonts spirit to new lands.',
+    icon: ancientScroll,
+    iconType: 'svg',
+    checkpoint: 'africa',
+    position: { x: 52, y: 55 },
+    date: '14/6/2025'
   },
   {
     id: 4,
-    year: '1356',
-    title: 'Library of Lore',
-    description: 'Established the grand library, preserving ancient knowledge and magical texts for future generations.',
-    icon: '📚',
-    checkpoint: 'africa',
-    position: { x: 52, y: 55 }
+    year: '2025',
+    title: 'Weekly Bash - Australia',
+    description: 'Reached the southern hemisphere, connecting with warriors across the Australian region.',
+    icon: ancientTemple,
+    iconType: 'svg',
+    checkpoint: 'australia',
+    position: { x: 82, y: 72 },
+    date: '6/9/2025'
   },
   {
     id: 5,
-    year: '1442',
-    title: 'Tournament of Champions',
-    description: 'Hosted the legendary tournament where warriors from across the realm competed for honor and glory.',
-    icon: '🏆',
-    checkpoint: 'south-america',
-    position: { x: 25, y: 70 }
+    year: '2025',
+    title: 'Project Showcase 3 - Day 1',
+    description: 'The monumental Project Showcase 3 begins in Asia, displaying the innovations and achievements of our clan.',
+    icon: ancientPyramid,
+    iconType: 'svg',
+    checkpoint: 'asia',
+    position: { x: 72, y: 35 },
+    date: '1/10/2025'
   },
   {
     id: 6,
-    year: '1598',
-    title: 'The Dragon Treaty',
-    description: 'Negotiated peace with the ancient dragons, securing the skies and establishing mutual respect.',
-    icon: '🐉',
-    checkpoint: 'australia',
-    position: { x: 82, y: 72 }
+    year: '2025',
+    title: 'Project Showcase 3 - Day 2',
+    description: 'Project Showcase 3 continues in Europe, showcasing the continued brilliance and unity of the Belmonts.',
+    icon: ancientSeal,
+    iconType: 'svg',
+    checkpoint: 'europe',
+    position: { x: 50, y: 25 },
+    date: '2/10/2025'
   },
   {
     id: 7,
-    year: '1723',
-    title: 'Expansion Era',
-    description: 'Extended clan influence to coastal regions, establishing new strongholds and trade routes.',
+    year: '2026',
+    title: 'Weekly Bash - Greenland',
+    description: 'The journey extends to Greenland, as the Belmonts continue their global expansion and gatherings.',
     icon: '⛵',
     checkpoint: 'greenland',
-    position: { x: 35, y: 12 }
+    position: { x: 35, y: 12 },
+    date: '25/1/2026'
   },
 ];
 
@@ -237,7 +258,7 @@ export default function Timeline() {
           {achievements.map((achievement, index) => (
             <div
               key={achievement.id}
-              className={`constellation-point ${focusedId === achievement.id ? 'focused' : ''}`}
+              className={`constellation-point ${focusedId === achievement.id ? 'focused' : ''} ${popupBelowCheckpoints.has(achievement.checkpoint) ? 'popup-below' : ''}`}
               ref={el => itemsRef.current[index] = el}
               style={{
                 left: `${achievement.position.x}%`,
@@ -249,14 +270,18 @@ export default function Timeline() {
               {/* Wax pin */}
               <div className="wax-pin">
                 <div className="pin-head">
-                  <span className="pin-icon">{achievement.icon}</span>
+                  {achievement.iconType === 'svg' ? (
+                    <img src={achievement.icon} alt={achievement.title} className="pin-icon-svg" />
+                  ) : (
+                    <span className="pin-icon">{achievement.icon}</span>
+                  )}
                 </div>
                 <div className="pin-seal"></div>
               </div>
 
               {/* Event popup */}
               <div className="event-popup">
-                <div className="popup-year">{achievement.year}</div>
+                 <div className="popup-year">{achievement.date || achievement.year}</div>
                 <h3 className="popup-title">{achievement.title}</h3>
                 <p className="popup-description">{achievement.description}</p>
                 <div className="popup-ornament">◈ ━ ◈</div>

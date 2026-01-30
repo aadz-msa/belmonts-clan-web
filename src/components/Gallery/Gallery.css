@@ -13,6 +13,42 @@
   z-index: 10;
 }
 
+/* Gallery View Toggle */
+.gallery-view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.toggle-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #3a3330 0%, #2a2220 100%);
+  color: #c0a080;
+  border: 2px solid #8b7355;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.toggle-btn:hover {
+  border-color: #d4af37;
+  color: #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #1a1410;
+  border-color: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
 .section-title {
   font-family: 'Cinzel', serif;
   font-size: clamp(2rem, 5vw, 3rem);

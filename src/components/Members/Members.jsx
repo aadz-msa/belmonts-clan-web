@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import membersData from '../../data/members.json';
@@ -43,7 +44,7 @@ const leaderImageMap = {
 export default function Members() {
   const sectionRef = useRef();
   const cardsRef = useRef([]);
-  const [selectedMember, setSelectedMember] = useState(null);
+  const navigate = useNavigate();
   
   // Assign actual images to leaders
   const leadersWithImages = leadersData.map(leader => ({
@@ -133,7 +134,7 @@ export default function Members() {
                 </div>
                 <button 
                   className="leader-profile-btn"
-                  onClick={() => setSelectedMember(leader)}
+                  onClick={() => navigate(`/member/leader/${leader.id}`)}
                 >
                   View Profile
                 </button>
@@ -191,7 +192,7 @@ export default function Members() {
                     <p className="back-status">{member.status}</p>
                     <button 
                       className="view-profile-btn"
-                      onClick={() => setSelectedMember(member)}
+                      onClick={() => navigate(`/member/${member.id}`)}
                     >
                       View Profile
                     </button>
@@ -202,73 +203,6 @@ export default function Members() {
           ))}
         </div>
       </div>
-
-      {/* Profile Modal */}
-      {selectedMember && (
-        <div className="profile-modal-overlay" onClick={() => setSelectedMember(null)}>
-          <div className="profile-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedMember(null)}>✕</button>
-            
-            <div className="modal-header">
-              <img 
-                src={selectedMember.image} 
-                alt={selectedMember.name}
-                className="modal-image"
-              />
-              <div className="modal-header-info">
-                <h2 className="modal-name">{selectedMember.name}</h2>
-                <p className="modal-title">{selectedMember.title}</p>
-                <span className="modal-status">{selectedMember.status}</span>
-              </div>
-            </div>
-
-            <div className="modal-body">
-              <div className="modal-section">
-                <h3 className="modal-section-title">Academic Details</h3>
-                <div className="modal-info-grid">
-                  <div className="modal-info-item">
-                    <span className="info-label">Department:</span>
-                    <span className="info-value">{selectedMember.department}</span>
-                  </div>
-                  <div className="modal-info-item">
-                    <span className="info-label">Year:</span>
-                    <span className="info-value">{selectedMember.yearStudying}</span>
-                  </div>
-                  <div className="modal-info-item">
-                    <span className="info-label">Register No:</span>
-                    <span className="info-value">{selectedMember.registerNumber}</span>
-                  </div>
-                  <div className="modal-info-item">
-                    <span className="info-label">Role:</span>
-                    <span className="info-value">{selectedMember.role}</span>
-                  </div>
-                  <div className="modal-info-item">
-                    <span className="info-label">Year Joined:</span>
-                    <span className="info-value">{selectedMember.yearJoined}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="modal-section">
-                <h3 className="modal-section-title">Projects</h3>
-                <ul className="modal-projects-list">
-                  {selectedMember.projects.map((project, idx) => (
-                    <li key={idx} className="project-item">⚔ {project}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="modal-actions">
-                {selectedMember.buttons.map((button, idx) => (
-                  <button key={idx} className="modal-action-btn">
-                    {button}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

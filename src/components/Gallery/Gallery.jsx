@@ -3,70 +3,81 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Gallery.css';
 
+// Import book images
+import groupPhoto1 from '../../assets/book/group-photo-1.jpg';
+import groupPhoto2 from '../../assets/book/group-photo-2.jpg';
+import participantsLineup from '../../assets/book/participants-lineup.jpg';
+import teamCollaboration from '../../assets/book/team-collaboration.jpg';
+import audienceView from '../../assets/book/audience-view.jpg';
+import awardCeremony from '../../assets/book/award-ceremony.jpg';
+import eventPresentation1 from '../../assets/book/event-presentation-1.jpg';
+import diceGamePresentation from '../../assets/book/dice-game-presentation.jpg';
+import bingoActivity from '../../assets/book/bingo-activity.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1533837382332-15a3d48c4138?w=800',
-    title: 'Castle Fortress',
-    description: 'The great stronghold where legends were forged',
-    category: 'Strongholds'
-  },
-  {
-    id: 2,
-    src: 'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=800',
-    title: 'Battle Formation',
-    description: 'Warriors standing as one against the darkness',
-    category: 'Battles'
-  },
-  {
-    id: 3,
-    src: 'https://images.unsplash.com/photo-1565000852-a63c066a6c7b?w=800',
-    title: 'Ancient Hall',
-    description: 'Where the council of Belmonts convened',
-    category: 'Heritage'
-  },
-  {
-    id: 4,
-    src: 'https://images.unsplash.com/photo-1567359781514-3b964e2b04d6?w=800',
-    title: 'War Banner',
-    description: 'The sacred banner carried through ages',
-    category: 'Artifacts'
-  },
-  {
-    id: 5,
-    src: 'https://images.unsplash.com/photo-1551414743-7a5f0e9e1f3c?w=800',
-    title: 'Great Council',
-    description: 'Ancient deliberations of the Belmont lineage',
+    src: groupPhoto1,
+    title: 'Belmont Clan Assembly',
+    description: 'The proud members of the legendary Belmont clan gathered in unified strength',
     category: 'Events'
   },
   {
+    id: 2,
+    src: groupPhoto2,
+    title: 'Lineage Gathering',
+    description: 'A solemn gathering of warriors honoring the ancient traditions of their lineage',
+    category: 'Heritage'
+  },
+  {
+    id: 3,
+    src: participantsLineup,
+    title: 'Warrior\'s Lineup',
+    description: 'Standing resolute, each member embodies the honor and courage of the Belmonts',
+    category: 'Strongholds'
+  },
+  {
+    id: 4,
+    src: teamCollaboration,
+    title: 'Brotherhood United',
+    description: 'In unity lies our greatest strength, bound by blood and sacred oath',
+    category: 'Events'
+  },
+  {
+    id: 5,
+    src: audienceView,
+    title: 'The Assembly Convenes',
+    description: 'Witnesses to history as the council of Belmonts deliberates their destiny',
+    category: 'Heritage'
+  },
+  {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1581456495146-65a71b2c8e52?w=800',
-    title: 'Knight\'s Armor',
-    description: 'Forged in fire, tested in battle',
+    src: awardCeremony,
+    title: 'Recognition of Valor',
+    description: 'Honoring those who have proven themselves worthy of the Belmont name',
     category: 'Artifacts'
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1578590715892-38e33cb1eedd?w=800',
-    title: 'Mountain Outpost',
-    description: 'Sentinel of the northern reaches',
-    category: 'Strongholds'
+    src: eventPresentation1,
+    title: 'The Grand Presentation',
+    description: 'A momentous occasion celebrating the achievements and legacy of our house',
+    category: 'Events'
   },
   {
     id: 8,
-    src: 'https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=800',
-    title: 'Victory Celebration',
-    description: 'A triumph etched in history',
+    src: diceGamePresentation,
+    title: 'Games of Chance and Skill',
+    description: 'Testing wit and fortune, as warriors have done since ancient times',
     category: 'Events'
   },
   {
     id: 9,
-    src: 'https://images.unsplash.com/photo-1604869515882-4d10fa4b0492?w=800',
-    title: 'Sacred Scroll',
-    description: 'Knowledge inscribed upon ancient parchment',
+    src: bingoActivity,
+    title: 'Gathering of Merriment',
+    description: 'Even in celebration, the Belmonts remain vigilant and steadfast',
     category: 'Heritage'
   }
 ];
@@ -81,7 +92,7 @@ export default function Gallery() {
   const codexRef = useRef();
   const bookCoverRef = useRef();
   const pagesRef = useRef([]);
-  const categories = ['All', 'Strongholds', 'Battles', 'Heritage', 'Artifacts', 'Events'];
+  const categories = ['All', 'Events', 'Heritage', 'Strongholds', 'Artifacts'];
 
   const filteredImages = filter === 'All'
     ? galleryImages

@@ -565,6 +565,30 @@
   letter-spacing: 0.02em;
 }
 
+.legend-profile-btn {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #8b4513 0%, #5c2e0f 100%);
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.legend-profile-btn:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #c19b1b 100%);
+  color: #3d2817;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
 .legends-modal-footer {
   padding: 20px 30px 30px;
   text-align: center;

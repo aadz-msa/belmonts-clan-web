@@ -17,16 +17,75 @@
   max-width: 900px;
   min-height: 80vh;
   background: 
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="6" seed="3" /></filter><rect width="300" height="300" filter="url(%23paper)" opacity="0.4"/></svg>'),
-    linear-gradient(135deg, #e8dcc8 0%, #d4c5b0 50%, #c9b9a1 100%);
-  background-size: 200px 200px, 100%;
-  border: 1px solid #8b7355;
+    /* Aged spots and water stains */
+    radial-gradient(circle at 15% 20%, rgba(139, 100, 60, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(107, 70, 40, 0.12) 0%, transparent 30%),
+    radial-gradient(circle at 25% 80%, rgba(139, 100, 60, 0.1) 0%, transparent 28%),
+    radial-gradient(circle at 75% 75%, rgba(107, 70, 40, 0.08) 0%, transparent 32%),
+    /* Fine wrinkles and creases */
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="8" seed="2" result="noise" /><feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" /></filter><rect width="400" height="400" fill="%23d4c5b0" filter="url(%23noise)" opacity="0.8"/></svg>'),
+    /* Paper texture overlay */
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="fiber"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="4" seed="1" /></filter><rect width="200" height="200" fill="%23e8dcc8" /><g opacity="0.15" filter="url(%23fiber)"><rect width="200" height="200" /></g></svg>'),
+    /* Base gradient - aged parchment color */
+    linear-gradient(180deg, 
+      #e8dcc8 0%, 
+      #e0d5bd 15%, 
+      #d8cdb5 35%, 
+      #d0c5ad 50%, 
+      #c9b9a1 65%, 
+      #c1b199 80%, 
+      #b8a890 100%);
+  background-size: 
+    100% 100%,
+    600px 600px,
+    300px 300px,
+    100%;
+  background-position: 
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  border: 2px solid #8b7355;
+  border-radius: 2px;
   box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.6),
-    inset 0 0 100px rgba(139, 115, 85, 0.1),
-    inset 0 0 20px rgba(212, 197, 176, 0.3);
+    0 20px 60px rgba(0, 0, 0, 0.7),
+    inset 0 0 120px rgba(107, 70, 40, 0.2),
+    inset 0 0 40px rgba(212, 197, 176, 0.4),
+    inset -2px -2px 8px rgba(0, 0, 0, 0.15),
+    inset 2px 2px 8px rgba(255, 255, 255, 0.1);
   transform-origin: top center;
   will-change: transform;
+}
+
+/* Overlay for additional aging effects */
+.parchment-scroll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    /* Fine crease lines */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 120px,
+      rgba(139, 100, 60, 0.08) 120px,
+      rgba(139, 100, 60, 0.08) 121px
+    ),
+    /* Vertical age lines */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(107, 70, 40, 0.05) 25%,
+      rgba(107, 70, 40, 0.08) 50%,
+      rgba(107, 70, 40, 0.05) 75%,
+      transparent 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 2px;
 }
 
 .scroll-edge {
@@ -38,6 +97,9 @@
     repeating-linear-gradient(90deg, #8b7355 0px, transparent 2px, transparent 8px);
   background-size: 100% 100%, 10px 100%;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  box-shadow: 
+    inset 0 -1px 3px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
 .top-edge {
@@ -65,6 +127,7 @@
 .scroll-content {
   padding: 4rem 3rem;
   position: relative;
+  z-index: 2;
 }
 
 .wax-seal {

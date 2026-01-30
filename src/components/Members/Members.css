@@ -3,7 +3,7 @@
   min-height: 100vh;
   padding: 8rem 2rem;
   background: 
-    linear-gradient(to bottom, #2d2419 0%, #1a1410 50%, #2d2419 100%);
+    linear-gradient(to bottom, #5d4a3a 0%, #4a3f35 50%, #5d4a3a 100%);
 }
 
 .members-container {
@@ -15,14 +15,14 @@
   font-family: 'Cinzel', serif;
   font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
-  color: #d4a574;
+  color: #f0d891;
   margin-bottom: 1rem;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
 
 .title-accent {
-  color: #8b7355;
+  color: #b8956a;
   margin: 0 1rem;
 }
 
@@ -30,7 +30,7 @@
   font-family: 'Cinzel', serif;
   font-size: clamp(1rem, 2vw, 1.2rem);
   text-align: center;
-  color: #b8a890;
+  color: #d4c4a8;
   max-width: 600px;
   margin: 0 auto 3rem;
   letter-spacing: 0.05em;
@@ -46,17 +46,17 @@
   font-family: 'Cinzel', serif;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   text-align: center;
-  color: #c9a961;
+  color: #f0d891;
   margin-bottom: 3rem;
   letter-spacing: 0.1em;
   font-weight: 700;
   text-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.6),
-    0 0 15px rgba(201, 169, 97, 0.3);
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(240, 216, 145, 0.4);
 }
 
 .leader-accent {
-  color: #8b7355;
+  color: #b8956a;
   margin: 0 1rem;
   font-size: 0.8em;
 }
@@ -78,26 +78,25 @@
 
 .leader-card {
   width: 100%;
-  height: 480px;
+  height: auto;
   position: relative;
 }
 
 .leader-card-front {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(60, 50, 35, 0.95) 0%, rgba(35, 28, 20, 0.95) 100%);
-  border: 3px solid #8b7355;
+  background: linear-gradient(135deg, rgba(107, 87, 71, 0.9) 0%, rgba(93, 74, 58, 0.9) 100%);
+  border: 3px solid #b8956a;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
-  clip-path: polygon(
-    0 0, calc(100% - 20px) 0, 100% 20px,
-    100% 100%, 20px 100%, 0 calc(100% - 20px)
-  );
   box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.6),
-    inset 0 0 30px rgba(201, 169, 97, 0.08);
+    inset 0 0 20px rgba(240, 216, 145, 0.2),
+    0 0 30px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
+  transition: all 0.4s ease;
+  padding: 0;
 }
 
 .leader-card-front::before {
@@ -105,70 +104,88 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 30px,
-      rgba(139, 115, 85, 0.05) 30px,
-      rgba(139, 115, 85, 0.05) 31px
-    );
-  pointer-events: none;
-  z-index: 1;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, #f0d891, transparent);
+  z-index: 2;
+}
+
+.leader-card-front:hover {
+  transform: translateY(-8px);
+  border-color: #f0d891;
+  box-shadow: 
+    inset 0 0 30px rgba(240, 216, 145, 0.3),
+    0 0 40px rgba(240, 216, 145, 0.5);
 }
 
 .leader-badge {
-  background: linear-gradient(135deg, #8b7355 0%, #a68a6a 50%, #8b7355 100%);
+  background: linear-gradient(135deg, #b8956a 0%, #c9a975 50%, #b8956a 100%);
   color: #f5ede0;
   font-weight: 700;
-  border: 1px solid rgba(139, 115, 85, 0.6);
+  border: 2px solid #f0d891;
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 10px rgba(240, 216, 145, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.85rem;
 }
 
 .leader-card .member-name {
-  color: #c9a961;
+  color: #f0d891;
   text-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.6),
-    0 0 8px rgba(201, 169, 97, 0.3);
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(240, 216, 145, 0.4);
 }
 
 .leader-profile-btn {
   font-family: 'Cinzel', serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #2a1f16;
-  background: linear-gradient(145deg, #c9a961 0%, #a68a6a 100%);
-  border: 3px solid #8b7355;
-  border-radius: 8px;
-  padding: 0.9rem 2.5rem;
+  color: #3d2817;
+  background: linear-gradient(145deg, #f0d891 0%, #c9a975 100%);
+  border: 3px solid #b8956a;
+  border-radius: 0;
+  padding: 1rem 2.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   min-width: 200px;
+  position: relative;
+}
+
+.leader-profile-btn::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 15px;
+  width: 20px;
+  height: 6px;
+  background: #f0d891;
+  box-shadow: 35px 0 0 #f0d891, 70px 0 0 #f0d891;
 }
 
 .leader-profile-btn:hover {
-  background: linear-gradient(145deg, #d4b574 0%, #b8996e 100%);
-  transform: translateY(-2px);
+  background: linear-gradient(145deg, #f5e1a8 0%, #d4b989 100%);
+  transform: translateY(-4px);
   box-shadow: 
-    0 6px 20px rgba(201, 169, 97, 0.4),
+    0 8px 25px rgba(240, 216, 145, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: #f0d891;
 }
 
 .leader-profile-btn:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
   box-shadow: 
-    0 3px 10px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -226,46 +243,46 @@
 }
 
 .leader-card {
-  perspective: 1000px;
-  height: 520px;
+  perspective: none;
+  height: auto;
+  position: relative;
 }
 
 .leader-card .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+  transform-style: initial;
 }
 
 .leader-card:hover .card-inner {
-  transform: rotateY(180deg);
+  transform: none;
 }
 
 .leader-card .card-front,
 .leader-card .card-back {
-  position: absolute;
+  position: static;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
-  border: 5px double #8b7355;
+  backface-visibility: visible;
+  border: 3px solid #b8956a;
   display: flex;
   flex-direction: column;
   box-shadow: 
-    0 15px 50px rgba(0, 0, 0, 0.7),
-    inset 0 0 40px rgba(139, 115, 85, 0.15),
-    inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    inset 0 0 20px rgba(240, 216, 145, 0.2),
+    0 0 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+
+.leader-card .card-back {
+  display: none;
 }
 
 .leader-card .card-front {
-  background: 
-    radial-gradient(circle at top left, rgba(70, 55, 35, 0.98), rgba(35, 25, 15, 0.98)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%23231910" width="100" height="100"/><path d="M10 10 L20 15 L30 10 M40 20 L50 25 L60 20" stroke="%238b7355" stroke-width="0.3" fill="none" opacity="0.2"/></svg>');
-  background-size: cover, 80px 80px;
-  clip-path: polygon(
-    0 0, calc(100% - 25px) 0, 100% 25px,
-    100% 100%, 25px 100%, 0 calc(100% - 25px)
-  );
+  background: linear-gradient(135deg, rgba(107, 87, 71, 0.9) 0%, rgba(93, 74, 58, 0.9) 100%);
+  background-size: cover;
+  clip-path: none;
   position: relative;
 }
 
@@ -274,56 +291,47 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 30px,
-      rgba(139, 115, 85, 0.08) 30px,
-      rgba(139, 115, 85, 0.08) 31px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 30px,
-      rgba(139, 115, 85, 0.08) 30px,
-      rgba(139, 115, 85, 0.08) 31px
-    );
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, #f0d891, transparent);
+  z-index: 2;
   pointer-events: none;
-  z-index: 1;
 }
 
 .leader-card .card-front::after {
   content: '';
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 1px solid rgba(139, 115, 85, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
+  border: none;
 }
 
 .leader-badge {
-  background: linear-gradient(135deg, #8b7355 0%, #a68a6a 50%, #8b7355 100%);
+  background: linear-gradient(135deg, #b8956a 0%, #c9a975 50%, #b8956a 100%);
   color: #f5ede0;
   font-weight: 700;
   box-shadow: 
-    0 4px 15px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(139, 115, 85, 0.6);
+    0 0 10px rgba(240, 216, 145, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  border: 2px solid #f0d891;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.85rem;
 }
 
 .leader-card .member-name {
-  color: #c9a961;
+  color: #f0d891;
   text-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.8),
-    0 0 8px rgba(201, 169, 97, 0.3);
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(240, 216, 145, 0.4);
 }
 
 /* Members Subtitle */

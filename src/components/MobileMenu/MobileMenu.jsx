@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import legendsData from '../../data/legends.json';
+import { useNavigate } from 'react-router-dom';
 import './MobileMenu.css';
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showLegendsModal, setShowLegendsModal] = useState(false);
+  const navigate = useNavigate();
 
   const menuItems = [
     { id: 1, name: 'Kingdom', icon: 'crown', locked: false, href: '#hero' },
@@ -21,10 +21,10 @@ const MobileMenu = () => {
   const handleNavigation = (href, locked, itemName) => {
     if (locked) return;
     
-    // Special handling for Legends
+    // Special handling for Legends - navigate to Legends page
     if (itemName === 'Legends') {
       setIsOpen(false);
-      setTimeout(() => setShowLegendsModal(true), 300);
+      navigate('/legends');
       return;
     }
     
@@ -105,45 +105,6 @@ const MobileMenu = () => {
           <div className="footer-text">Est. MMXXIV</div>
         </div>
       </div>
-
-      {/* Legends Modal */}
-      {showLegendsModal && (
-        <div className="legends-modal-overlay" onClick={() => setShowLegendsModal(false)}>
-          <div className="legends-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="legends-modal-close" onClick={() => setShowLegendsModal(false)}>✕</button>
-            
-            <div className="legends-modal-header">
-              <h2 className="legends-modal-title">Hall of Legends</h2>
-              <p className="legends-modal-subtitle">Former Warriors of the Belmonts Clan</p>
-            </div>
-
-            <div className="legends-modal-content">
-              {legendsData.map((legend) => (
-                <div key={legend.id} className="legend-card">
-                  <div className="legend-card-header">
-                    <h3 className="legend-name">{legend.name}</h3>
-                    <div className="legend-divider"></div>
-                  </div>
-                  
-                  <div className="legend-role-section">
-                    <span className="legend-role-label">Former Role:</span>
-                    <span className="legend-role-value">{legend.formerRole}</span>
-                  </div>
-                  
-                  <div className="legend-divider"></div>
-                  
-                  <p className="legend-description">{legend.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="legends-modal-footer">
-              <div className="legend-ornament">◈ ━━━ ◈</div>
-              <p className="legend-footer-text">Their legacy lives on in our brotherhood</p>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
