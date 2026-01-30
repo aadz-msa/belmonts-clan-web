@@ -96,11 +96,11 @@ export default function About() {
           
           <div className="scroll-text">
             <p className="manuscript-line" ref={el => textLinesRef.current[1] = el}>
-              In the ancient lands where shadows dance with flame, the Belmonts rose from the ashes of forgotten kingdoms.
+              Where we explore, gain and impart knowledge to build things, trying to make a change in how the world operates. Like a wave that comes crashing to change everything into better things.
             </p>
             
             <p className="manuscript-line" ref={el => textLinesRef.current[2] = el}>
-              Forged in the crucible of legendary battles, bound by sacred oaths that transcend mortal understanding.
+              Something outside today's system, reminiscent of the 15th or 16th centuries. A group of people who will question everything and finding the answers to their inquiries—a crusade for wisdom.
             </p>
             
             <div className="ink-divider">⚜</div>
@@ -110,13 +110,13 @@ export default function About() {
             </p>
             
             <p className="manuscript-line" ref={el => textLinesRef.current[4] = el}>
-              We are strategists and warriors, scholars and rogues, united by an unbreakable code of honor.
+              Our aim is to foster an environment where creativity and technology intertwine, leading to groundbreaking innovations that can reshape our world.
             </p>
             
             <div className="ink-divider">⚜</div>
             
             <p className="manuscript-line manuscript-quote" ref={el => textLinesRef.current[5] = el}>
-              "In unity, we find strength. In honor, we find purpose. In legacy, we find immortality."
+              "Ad Montem Sapientiae"
             </p>
             
             <p className="manuscript-signature" ref={el => textLinesRef.current[6] = el}>

@@ -1,9 +1,49 @@
 import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import mapImage from '../../assets/map.webp';
 import './Timeline.css';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Geographical checkpoint locations on the map
+const checkpoints = [
+  {
+    id: 'north-america',
+    position: { x: 18, y: 35 },
+    icon: '📍'
+  },
+  {
+    id: 'south-america',
+    position: { x: 25, y: 70 },
+    icon: '📍'
+  },
+  {
+    id: 'europe',
+    position: { x: 50, y: 25 },
+    icon: '📍'
+  },
+  {
+    id: 'africa',
+    position: { x: 52, y: 55 },
+    icon: '📍'
+  },
+  {
+    id: 'asia',
+    position: { x: 72, y: 35 },
+    icon: '📍'
+  },
+  {
+    id: 'australia',
+    position: { x: 82, y: 72 },
+    icon: '📍'
+  },
+  {
+    id: 'greenland',
+    position: { x: 35, y: 12 },
+    icon: '📍'
+  }
+];
 
 const achievements = [
   {
@@ -12,7 +52,8 @@ const achievements = [
     title: 'The Founding',
     description: 'Lord Aldric united the scattered warriors under one banner, forging the Belmonts clan in the fires of brotherhood.',
     icon: '🏰',
-    position: { x: 15, y: 30 }
+    checkpoint: 'europe',
+    position: { x: 50, y: 25 }
   },
   {
     id: 2,
@@ -20,7 +61,8 @@ const achievements = [
     title: 'Battle of Shadow\'s Peak',
     description: 'Against impossible odds, the Belmonts held the mountain pass for seven days, earning legendary status.',
     icon: '⚔',
-    position: { x: 45, y: 20 }
+    checkpoint: 'asia',
+    position: { x: 72, y: 35 }
   },
   {
     id: 3,
@@ -28,7 +70,8 @@ const achievements = [
     title: 'The Great Alliance',
     description: 'Formed alliances with three neighboring kingdoms, expanding influence across the northern territories.',
     icon: '🤝',
-    position: { x: 75, y: 35 }
+    checkpoint: 'north-america',
+    position: { x: 18, y: 35 }
   },
   {
     id: 4,
@@ -36,7 +79,8 @@ const achievements = [
     title: 'Library of Lore',
     description: 'Established the grand library, preserving ancient knowledge and magical texts for future generations.',
     icon: '📚',
-    position: { x: 25, y: 60 }
+    checkpoint: 'africa',
+    position: { x: 52, y: 55 }
   },
   {
     id: 5,
@@ -44,7 +88,8 @@ const achievements = [
     title: 'Tournament of Champions',
     description: 'Hosted the legendary tournament where warriors from across the realm competed for honor and glory.',
     icon: '🏆',
-    position: { x: 65, y: 55 }
+    checkpoint: 'south-america',
+    position: { x: 25, y: 70 }
   },
   {
     id: 6,
@@ -52,7 +97,8 @@ const achievements = [
     title: 'The Dragon Treaty',
     description: 'Negotiated peace with the ancient dragons, securing the skies and establishing mutual respect.',
     icon: '🐉',
-    position: { x: 50, y: 75 }
+    checkpoint: 'australia',
+    position: { x: 82, y: 72 }
   },
   {
     id: 7,
@@ -60,16 +106,9 @@ const achievements = [
     title: 'Expansion Era',
     description: 'Extended clan influence to coastal regions, establishing new strongholds and trade routes.',
     icon: '⛵',
-    position: { x: 80, y: 65 }
+    checkpoint: 'greenland',
+    position: { x: 35, y: 12 }
   },
-  {
-    id: 8,
-    year: 'Present',
-    title: 'The New Chapter',
-    description: 'The Belmonts continue to thrive, adapting ancient wisdom to modern challenges while preserving sacred traditions.',
-    icon: '✨',
-    position: { x: 50, y: 85 }
-  }
 ];
 
 export default function Timeline() {
@@ -164,7 +203,7 @@ export default function Timeline() {
         </p>
 
         {/* Constellation Map */}
-        <div className="constellation-map" ref={mapRef}>
+        <div className="constellation-map" ref={mapRef} style={{ backgroundImage: `url(${mapImage})` }}>
           {/* SVG for hand-drawn lines */}
           <svg
             ref={svgRef}
@@ -174,6 +213,25 @@ export default function Timeline() {
             viewBox="0 0 1000 600"
             preserveAspectRatio="xMidYMid slice"
           ></svg>
+
+          {/* Geographical Checkpoints */}
+          {checkpoints.map((checkpoint) => (
+            <div
+              key={checkpoint.id}
+              className="map-checkpoint"
+              style={{
+                left: `${checkpoint.position.x}%`,
+                top: `${checkpoint.position.y}%`,
+              }}
+              title={checkpoint.name}
+            >
+              <div className="checkpoint-marker">
+                <div className="checkpoint-pulse"></div>
+                <div className="checkpoint-icon">{checkpoint.icon}</div>
+              </div>
+              <div className="checkpoint-label">{checkpoint.name}</div>
+            </div>
+          ))}
 
           {/* Constellation stars/points */}
           {achievements.map((achievement, index) => (

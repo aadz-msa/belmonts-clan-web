@@ -66,8 +66,14 @@ export default function Hero() {
         </div>
 
         <button className="hero-cta" ref={buttonRef} onClick={scrollToContent} aria-label="Enter the Kingdom">
-          <span className="cta-text">Enter the Kingdom</span>
-          <span className="cta-icon">⚔</span>
+          <div className="cta-ornament cta-ornament-left">◈</div>
+          <div className="cta-content">
+            <span className="cta-runes">⚔ ━━━</span>
+            <span className="cta-text">ENTER THE REALM</span>
+            <span className="cta-runes">━━━ ⚔</span>
+          </div>
+          <div className="cta-ornament cta-ornament-right">◈</div>
+          <div className="cta-glow"></div>
         </button>
       </div>
     </section>
