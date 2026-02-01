@@ -7,6 +7,7 @@ import Members from './components/Members/Members';
 import Gallery from './components/Gallery/Gallery';
 import CastleWallGallery from './components/Gallery/CastleWallGallery';
 import Timeline from './components/Timeline/Timeline';
+import TreasureRitual from './components/TreasureRitual/TreasureRitual';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import MobileMenu from './components/MobileMenu/MobileMenu';
@@ -28,6 +29,7 @@ function HomePage() {
       <Gallery />
       <Timeline />
       <CastleWallGallery />
+      <TreasureRitual />
       <Contact />
       <Footer />
     </div>
