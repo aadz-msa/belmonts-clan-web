@@ -16,6 +16,10 @@ import Legends from './pages/Legends';
 import Treasure from './pages/Treasure';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import './App.css';
+import 
+
+
+
 
 function HomePage() {
   useSmoothScroll();
